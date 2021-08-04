@@ -18,23 +18,7 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-class Beverage
-{
-    public string $color;
-    public float $price;
-    public string $temperature = 'cold';
-
-    function __construct(string $color, float $price){
-        $this->color=$color;
-        $this->price=$price;
-    }
-
-    function getInfo(): string
-    {
-        return "This beverage is $this->temperature and $this->color. <br>
-                The price is $this->price €.";
-    }
-};
+require ('beverage.php');
 
 $cola = new Beverage('black', 2.00);
 
