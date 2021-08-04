@@ -16,4 +16,30 @@ Try to get this error on the screen= Fatal error: Uncaught Error: Call to undefi
 USE TYPEHINTING EVERYWHERE!
 */
 
-echo 'exercise2';
+require ('beverage.php');
+
+class AlcoholBeverage extends Beverage
+{
+    public string $name;
+    public float $alcoholPercentage;
+
+    function __construct(string $color, float $price, string $name, float $alcoholPercentage)
+    {
+        parent::__construct($color, $price);
+        $this->name=$name;
+        $this->alcoholPercentage=$alcoholPercentage;
+    }
+    function getAlcoholPercentage(): string
+    {
+        return "$this->name contains $this->alcoholPercentage % of alcohol";
+    }
+
+};
+
+$beer = new AlcoholBeverage('blond', 4.00, 'Duwel', 8.00);
+
+echo $beer->name;
+echo '<br>';
+echo $beer->getInfo();
+echo '<br>';
+echo $beer->getAlcoholPercentage();
